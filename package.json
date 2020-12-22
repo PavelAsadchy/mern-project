@@ -1,0 +1,32 @@
+{
+  "name": "mern-project",
+  "version": "1.0.0",
+  "description": "Mern stack",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "server": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PavelAsadchy/mern-project.git"
+  },
+  "keywords": [
+    "mern",
+    "react"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PavelAsadchy/mern-project/issues"
+  },
+  "homepage": "https://github.com/PavelAsadchy/mern-project#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.11.8"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.6"
+  }
+}
