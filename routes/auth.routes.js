@@ -1,12 +1,30 @@
 const { Router } = require('express');
 const bcrypt = require('bcryptjs');
+const { check, validationResult } = require('express-validator');
 const User = require('../models/User');
 const router = Router();
 
 // Endpoints
 // Registation: /api/auth/register
-router.post('/register', async (request, response) => {
+router.post(
+  '/register',
+  // Validating
+  [
+    check('email', 'Incorrect email').isEmail(),
+    check ('password', 'Minimal length is 6 digits')
+      .isLength({ min: 6 }),
+  ],
+  async (request, response) => {
   try {
+
+    // Getting validation results
+    const errors = validationResult(request);
+    if (!errors.isEmpty()) {
+      return response.status(400).json({
+        errors: errors.array(),
+        message: 'Incorrect registration inputs'
+      })
+    }
 
     // Getting request fiels sent from frontend
     const { email, password } = request.body;
