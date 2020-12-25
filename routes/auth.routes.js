@@ -1,9 +1,10 @@
 const { Router } = require('express');
+const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 const router = Router();
 
 // Endpoints
-// /api/auth/register
+// Registation: /api/auth/register
 router.post('/register', async (request, response) => {
   try {
 
@@ -15,15 +16,25 @@ router.post('/register', async (request, response) => {
     if (candidate) {
       return response.status(400).json({
         message: 'User already exists'
-      })
+      });
     }
+
+    // Hashing password (12 - salt for encryption )
+    const hashedPassword = await bcrypt.hash(password, 12);
+    const user = new User({ email, password: hashedPassword });
+
+    await user.save();
+
+    response.status(201).json({
+      message: 'User saved'
+    });
 
   } catch(err) {
 
     // Setting message in case of error
     response.status(500).json({
-      message: "Smth went wrong, please try again"
-    })
+      message: 'Something went wrong, please try again'
+    });
   }
 })
 
