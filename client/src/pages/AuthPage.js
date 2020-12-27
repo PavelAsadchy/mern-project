@@ -5,7 +5,7 @@ import { useMessage } from '../hooks/message.hook';
 export const AuthPage = () => {
   const message = useMessage();
   const { loading, request, error, clearError } = useHttp();
-  const [ form, setForm ] = useState({
+  const [form, setForm] = useState({
     email: '', password: ''
   });
 
