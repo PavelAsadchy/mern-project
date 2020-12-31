@@ -103,13 +103,12 @@ router.post(
         { expiresIn: '1h' }
       );
 
-      response(200).json({
+      response.status(200).json({
         token,
         userId: user.id,
       });
 
     } catch(err) {
-  
       // Setting message in case of error
       response.status(500).json({
         message: 'Something went wrong, please try again'
