@@ -57,7 +57,7 @@ router.post(
       });
     }
   }
-)
+);
 
 // /api/auth/login
 router.post(
@@ -115,6 +115,6 @@ router.post(
       });
     }
   }
-)
+);
 
 module.exports = router;
