@@ -1,4 +1,4 @@
-const { Router, request, response } = require('express');
+const { Router } = require('express');
 const config = require('config');
 const shortid = require('shortid');
 const Link = require('../models/Link');

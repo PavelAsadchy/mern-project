@@ -1,5 +1,4 @@
 const { Schema, model, Types } = require('mongoose');
-const User = require('./User');
 
 // Setting user schema
 const schema = new Schema({
@@ -27,7 +26,7 @@ const schema = new Schema({
   },
   owner: {
     type: Types.ObjectId,
-    ref: User, // referense to User.js model name //
+    ref: 'User', // referense to User.js model name //
   },
 });
 

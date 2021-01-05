@@ -28,7 +28,6 @@ export const LinksPage = () => {
   if (loading) {
     return <Loader />;
   }
-  console.log(links)
 
   return (
     <>
